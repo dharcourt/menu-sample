@@ -13,5 +13,55 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         value: function Main() {
             this.super();
         }
+    },
+
+    tree: {
+        value: {
+            "name": "Root",
+            "children": [
+                {
+                    "name": "Parent 1",
+                    "children": [
+                        {"name": "Child 1" }
+                    ]
+                },
+                {
+                    "name": "Parent 2",
+                    "children": [
+                        {
+                            "name": "Child 2-1",
+                            children: [
+                                {
+                                    name: "Child 2-1-1"
+                                },
+                                {
+                                    name: "Child 2-1-2",
+                                    children: [
+                                            {
+                                            name: "Child 2-1-2-1"
+                                        },
+                                        {
+                                            name: "Child 2-1-2-2"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Child 2-2",
+                            children: [
+                                {name: "Child 2-2-1"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Parent 3",
+                    "children": [
+                        {"name": "Child 3"}
+                    ]
+                }
+            ]
+        }
     }
 });

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="menu.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "condition": {
+            "prototype": "montage/ui/condition.reel",
+            "properties": {
+                "element": {"#": "condition"},
+                "removalStrategy": "remove"
+            },
+            "bindings": {
+                "condition": {"<-": "@repetition:iteration.object.children"}
+            }
+        },
+        "repetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.items"}
+            }
+        },
+        "submenu": {
+            "prototype": "ui/menu.reel",
+            "properties": {
+                "element": {"#": "submenu"}
+            },
+            "bindings": {
+                "items": {"<-": "@repetition:iteration.object.children"}
+            }
+        },
+        "text": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "text"},
+                "value": "Text"
+            },
+            "bindings": {
+                "value": {"<-": "@repetition:iteration.object.name"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="Menu">
+        <ul data-montage-id="repetition">
+            <li>
+                <p data-montage-id="text"></p>
+                <div data-montage-id="condition">
+                    <div data-montage-id="submenu"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
